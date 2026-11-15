@@ -1,0 +1,8 @@
+FROM python:3.13-slim
+ARG APP_VERSION=dev
+ENV APP_VERSION=$APP_VERSION PYTHONUNBUFFERED=1 PORT=8080
+WORKDIR /srv
+COPY app/web.py .
+USER nobody
+EXPOSE 8080
+CMD ["python", "web.py"]

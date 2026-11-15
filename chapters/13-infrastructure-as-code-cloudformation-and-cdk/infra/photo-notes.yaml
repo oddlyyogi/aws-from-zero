@@ -1,0 +1,104 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Photo Notes core (table, photos bucket, jobs queue, notes function)
+
+Parameters:
+  Stage:
+    Type: String
+    AllowedValues: [dev, prod]
+    Default: dev
+    Description: Which copy of the app this stack is
+
+Conditions:
+  IsProd: !Equals [!Ref Stage, prod]
+
+Resources:
+  NotesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - { AttributeName: pk, AttributeType: S }
+        - { AttributeName: sk, AttributeType: S }
+      KeySchema:
+        - { AttributeName: pk, KeyType: HASH }
+        - { AttributeName: sk, KeyType: RANGE }
+      Tags: [{ Key: project, Value: photo-notes }]
+
+  PhotosBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      VersioningConfiguration: { Status: Enabled }
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  JobsDeadLetters:
+    Type: AWS::SQS::Queue
+    Properties:
+      MessageRetentionPeriod: 1209600
+
+  JobsQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      VisibilityTimeout: 90
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt JobsDeadLetters.Arn
+        maxReceiveCount: 2
+      MessageRetentionPeriod: !If [IsProd, 1209600, 345600]
+
+  NotesFunctionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: lambda.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: notes-table
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: [dynamodb:PutItem, dynamodb:Query]
+                Resource: !GetAtt NotesTable.Arn
+
+  NotesFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Runtime: python3.14
+      Architectures: [arm64]
+      Handler: index.handler
+      Role: !GetAtt NotesFunctionRole.Arn
+      Environment:
+        Variables:
+          TABLE: !Ref NotesTable
+          STAGE: !Ref Stage
+      Code:
+        ZipFile: |
+          import os, boto3
+          table = boto3.resource("dynamodb").Table(os.environ["TABLE"])
+          def handler(event, context):
+              table.put_item(Item={"pk": "USER#ana", "sk": "NOTE#1", "title": "Beach day"})
+              items = table.query(KeyConditionExpression="pk = :u",
+                                  ExpressionAttributeValues={":u": "USER#ana"})["Items"]
+              return {"stage": os.environ["STAGE"], "notes": len(items)}
+
+Outputs:
+  TableName:
+    Value: !Ref NotesTable
+    Export:
+      Name: !Sub "${AWS::StackName}-table"
+  BucketName:
+    Value: !Ref PhotosBucket
+  QueueUrl:
+    Value: !Ref JobsQueue
+  FunctionName:
+    Value: !Ref NotesFunction
+  StageLabel:
+    Value: !Sub "photo-notes-${Stage}"
