@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "audit",
+    "Arn": "AUDIT_ARN",
+    "InputTransformer": {
+      "InputPathsMap": { "key": "$.detail.object.key", "size": "$.detail.object.size" },
+      "InputTemplate": "\"Photo <key> uploaded, <size> bytes\""
+    }
+  }
+]
