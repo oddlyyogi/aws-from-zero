@@ -1,0 +1,4 @@
+{
+  "routeKey": "POST /notes",
+  "body": "{\"title\": \"Beach day\", \"body\": \"Low tide at six.\", \"tags\": [\"sea\"]}"
+}

@@ -22,7 +22,7 @@ chapter deletes what it creates, so follow along and clean up the same way.
 | 6 | S3: Storage for Photos | [chapters/06-s3-storage-for-photos](chapters/06-s3-storage-for-photos) |
 | 7 | Databases: RDS and DynamoDB | [chapters/07-databases-rds-and-dynamodb](chapters/07-databases-rds-and-dynamodb) |
 | 8 | Serverless: Lambda and API Gateway | coming soon |
-| 9 | Messaging: SQS, SNS and EventBridge | coming soon |
+| 9 | Messaging: SQS, SNS and EventBridge | [chapters/09-messaging-sqs-sns-and-eventbridge](chapters/09-messaging-sqs-sns-and-eventbridge) |
 | 10 | Containers: ECR and ECS Fargate | coming soon |
 | 11 | Monitoring and Audit: CloudWatch and CloudTrail | coming soon |
 | 12 | CDN, DNS and HTTPS: CloudFront, ACM and Route 53 | coming soon |
