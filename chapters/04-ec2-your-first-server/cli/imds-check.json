@@ -1,0 +1,13 @@
+{
+  "commands": [
+    "systemctl is-active photo-notes",
+    "pip3 show flask gunicorn | grep -E '^(Name|Version)'",
+    "tail -n 2 /var/log/cloud-init-output.log",
+    "M=http://169.254.169.254/latest",
+    "curl -s -o /dev/null -w 'v1 status: %{http_code}\\n' $M/meta-data/instance-id",
+    "TOKEN=$(curl -s -X PUT $M/api/token -H 'X-aws-ec2-metadata-token-ttl-seconds: 60')",
+    "H=\"X-aws-ec2-metadata-token: $TOKEN\"",
+    "curl -s -H \"$H\" $M/meta-data/instance-type; echo",
+    "curl -s -H \"$H\" $M/meta-data/iam/security-credentials/; echo"
+  ]
+}

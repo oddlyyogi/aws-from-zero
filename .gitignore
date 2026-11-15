@@ -1,0 +1,9 @@
+# secrets and machine-local settings never go into git
+.env
+*.env
+*.pem
+.aws/
+build/
+.venv/
+__pycache__/
+*.zip

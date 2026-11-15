@@ -1,0 +1,8 @@
+{
+  "TableName": "photo-notes-cli",
+  "Item": {
+    "note_id": { "S": "n-001" },
+    "title": { "S": "Beach day" },
+    "body": { "S": "Low tide at six." }
+  }
+}
