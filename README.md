@@ -2,9 +2,10 @@
 
 The code for the **AWS** video course. One small app, Photo Notes (notes that can carry photos), grows on an AWS
 Free plan account: a budget and alerts, IAM policies, the CLI and boto3, a first EC2 server, its own VPC, S3 for
-photos, RDS and DynamoDB, a serverless API on Lambda, and more in later chapters.
+photos, RDS and DynamoDB, a serverless API on Lambda, queues and events, containers on ECS, monitoring and audit,
+CloudFront preparation with ACM and Route 53, CloudFormation, KMS, secrets and WAF, and a GitHub Actions OIDC design.
 
-The root of this repository is the project as it stands after the latest finished chapter. Each chapter's finished
+The root of this repository is the finished project. Each chapter's finished
 project is in [`chapters/`](chapters). Policies and settings files use placeholders such as `ACCOUNT_ID`, `BUCKET` and
 `TOPIC_ARN`; the videos fill them in with `sed` into a `build/` folder that git ignores, so no account details are ever
 committed.
