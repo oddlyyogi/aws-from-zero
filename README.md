@@ -26,7 +26,7 @@ chapter deletes what it creates, so follow along and clean up the same way.
 | 10 | Containers: ECR and ECS Fargate | [chapters/10-containers-ecr-and-ecs-fargate](chapters/10-containers-ecr-and-ecs-fargate) |
 | 11 | Monitoring and Audit: CloudWatch and CloudTrail | [chapters/11-monitoring-and-audit-cloudwatch-and-cloudtrail](chapters/11-monitoring-and-audit-cloudwatch-and-cloudtrail) |
 | 12 | CDN, DNS and HTTPS: CloudFront, ACM and Route 53 | coming soon |
-| 13 | Infrastructure as Code: CloudFormation and CDK | [chapters/13-infrastructure-as-code-cloudformation-and-cdk](chapters/13-infrastructure-as-code-cloudformation-and-cdk) |
+| 13 | Infrastructure as Code: CloudFormation | [chapters/13-infrastructure-as-code-cloudformation](chapters/13-infrastructure-as-code-cloudformation) |
 | 14 | Security Essentials: KMS, Secrets and WAF | [chapters/14-security-essentials-kms-secrets-and-waf](chapters/14-security-essentials-kms-secrets-and-waf) |
 | 15 | Deploy with GitHub Actions, Then Clean Up | coming soon |
 
