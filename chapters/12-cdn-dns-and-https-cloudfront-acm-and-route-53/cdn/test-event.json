@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "context": { "eventType": "viewer-request" },
+  "viewer": { "ip": "192.0.2.10" },
+  "request": {
+    "method": "GET", "uri": "/notes/",
+    "querystring": {}, "headers": {}, "cookies": {}
+  }
+}

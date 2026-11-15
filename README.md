@@ -25,10 +25,10 @@ chapter deletes what it creates, so follow along and clean up the same way.
 | 9 | Messaging: SQS, SNS and EventBridge | [chapters/09-messaging-sqs-sns-and-eventbridge](chapters/09-messaging-sqs-sns-and-eventbridge) |
 | 10 | Containers: ECR and ECS Fargate | [chapters/10-containers-ecr-and-ecs-fargate](chapters/10-containers-ecr-and-ecs-fargate) |
 | 11 | Monitoring and Audit: CloudWatch and CloudTrail | [chapters/11-monitoring-and-audit-cloudwatch-and-cloudtrail](chapters/11-monitoring-and-audit-cloudwatch-and-cloudtrail) |
-| 12 | CDN, DNS and HTTPS: CloudFront, ACM and Route 53 | coming soon |
+| 12 | CDN, DNS and HTTPS: CloudFront, ACM and Route 53 | [chapters/12-cdn-dns-and-https-cloudfront-acm-and-route-53](chapters/12-cdn-dns-and-https-cloudfront-acm-and-route-53) |
 | 13 | Infrastructure as Code: CloudFormation | [chapters/13-infrastructure-as-code-cloudformation](chapters/13-infrastructure-as-code-cloudformation) |
 | 14 | Security Essentials: KMS, Secrets and WAF | [chapters/14-security-essentials-kms-secrets-and-waf](chapters/14-security-essentials-kms-secrets-and-waf) |
-| 15 | Deploy with GitHub Actions, Then Clean Up | coming soon |
+| 15 | GitHub Actions with OIDC, Then Clean Up | coming soon |
 
 ## Versions
 
