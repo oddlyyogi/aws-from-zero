@@ -23,7 +23,7 @@ chapter deletes what it creates, so follow along and clean up the same way.
 | 7 | Databases: RDS and DynamoDB | [chapters/07-databases-rds-and-dynamodb](chapters/07-databases-rds-and-dynamodb) |
 | 8 | Serverless: Lambda and API Gateway | coming soon |
 | 9 | Messaging: SQS, SNS and EventBridge | [chapters/09-messaging-sqs-sns-and-eventbridge](chapters/09-messaging-sqs-sns-and-eventbridge) |
-| 10 | Containers: ECR and ECS Fargate | coming soon |
+| 10 | Containers: ECR and ECS Fargate | [chapters/10-containers-ecr-and-ecs-fargate](chapters/10-containers-ecr-and-ecs-fargate) |
 | 11 | Monitoring and Audit: CloudWatch and CloudTrail | coming soon |
 | 12 | CDN, DNS and HTTPS: CloudFront, ACM and Route 53 | coming soon |
 | 13 | Infrastructure as Code: CloudFormation and CDK | coming soon |
