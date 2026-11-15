@@ -28,7 +28,7 @@ chapter deletes what it creates, so follow along and clean up the same way.
 | 12 | CDN, DNS and HTTPS: CloudFront, ACM and Route 53 | [chapters/12-cdn-dns-and-https-cloudfront-acm-and-route-53](chapters/12-cdn-dns-and-https-cloudfront-acm-and-route-53) |
 | 13 | Infrastructure as Code: CloudFormation | [chapters/13-infrastructure-as-code-cloudformation](chapters/13-infrastructure-as-code-cloudformation) |
 | 14 | Security Essentials: KMS, Secrets and WAF | [chapters/14-security-essentials-kms-secrets-and-waf](chapters/14-security-essentials-kms-secrets-and-waf) |
-| 15 | GitHub Actions with OIDC, Then Clean Up | coming soon |
+| 15 | GitHub Actions with OIDC, Then Clean Up | [chapters/15-github-actions-with-oidc-then-clean-up](chapters/15-github-actions-with-oidc-then-clean-up) |
 
 ## Versions
 

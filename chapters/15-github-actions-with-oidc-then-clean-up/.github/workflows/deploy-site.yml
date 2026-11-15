@@ -1,0 +1,26 @@
+name: deploy-site
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: us-east-2
+          mask-aws-account-id: true
+      - name: Who are we
+        run: aws sts get-caller-identity --query Arn --output text
+      - name: Upload the site
+        run: aws s3 sync site/ "s3://${{ vars.SITE_BUCKET }}/" --delete
+      - name: Smoke test
+        run: |
+          aws s3 cp "s3://${{ vars.SITE_BUCKET }}/index.html" deployed.html
+          cmp site/index.html deployed.html && echo "deployed copy matches"
