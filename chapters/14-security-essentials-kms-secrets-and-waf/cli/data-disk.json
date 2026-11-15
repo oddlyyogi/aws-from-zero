@@ -1,0 +1,9 @@
+{
+  "commands": [
+    "DEV=$(lsblk -dno NAME,SERIAL | awk -v s=VOLID '$2 == s {print \"/dev/\" $1}')",
+    "echo device: $DEV",
+    "mkfs -t xfs -q $DEV && mkdir -p /data && mount $DEV /data",
+    "echo first photo goes here > /data/hello.txt",
+    "df -h /data | tail -1"
+  ]
+}

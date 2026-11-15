@@ -1,0 +1,24 @@
+[
+  {
+    "Name": "aws-common",
+    "Priority": 0,
+    "Statement": {
+      "ManagedRuleGroupStatement": {
+        "VendorName": "AWS", "Name": "AWSManagedRulesCommonRuleSet"
+      }
+    },
+    "OverrideAction": { "None": {} },
+    "VisibilityConfig": { "SampledRequestsEnabled": true, "CloudWatchMetricsEnabled": true,
+                          "MetricName": "aws-common" }
+  },
+  {
+    "Name": "rate-limit",
+    "Priority": 1,
+    "Statement": {
+      "RateBasedStatement": { "Limit": 10, "EvaluationWindowSec": 60, "AggregateKeyType": "IP" }
+    },
+    "Action": { "Block": {} },
+    "VisibilityConfig": { "SampledRequestsEnabled": true, "CloudWatchMetricsEnabled": true,
+                          "MetricName": "rate-limit" }
+  }
+]

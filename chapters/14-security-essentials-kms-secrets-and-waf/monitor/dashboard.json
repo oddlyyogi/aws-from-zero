@@ -1,0 +1,21 @@
+{
+  "widgets": [
+    {
+      "type": "metric", "x": 0, "y": 0, "width": 12, "height": 6,
+      "properties": {
+        "title": "Calls and errors", "region": "us-east-2", "stat": "Sum", "period": 60,
+        "metrics": [["AWS/Lambda", "Invocations", "FunctionName", "photo-notes-monitor"],
+                    [".", "Errors", ".", "."]]
+      }
+    },
+    {
+      "type": "metric", "x": 12, "y": 0, "width": 12, "height": 6,
+      "properties": {
+        "title": "Duration (ms)", "region": "us-east-2", "period": 60,
+        "metrics": [["AWS/Lambda", "Duration", "FunctionName", "photo-notes-monitor",
+                     {"stat": "Average"}],
+                    ["...", {"stat": "p90"}]]
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "family": "photo-notes-web",
+  "requiresCompatibilities": ["FARGATE"],
+  "networkMode": "awsvpc",
+  "cpu": "256",
+  "memory": "512",
+  "runtimePlatform": { "cpuArchitecture": "ARM64", "operatingSystemFamily": "LINUX" },
+  "executionRoleArn": "arn:aws:iam::ACCOUNT_ID:role/photo-notes-ecs-exec",
+  "containerDefinitions": [
+    {
+      "name": "web",
+      "image": "IMAGE",
+      "essential": true,
+      "portMappings": [{ "containerPort": 8080, "protocol": "tcp" }],
+      "environment": [{ "name": "APP_VERSION", "value": "VERSION" }],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/photo-notes-web",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "web"
+        }
+      }
+    }
+  ]
+}

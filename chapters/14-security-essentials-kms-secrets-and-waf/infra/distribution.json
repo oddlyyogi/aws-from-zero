@@ -1,0 +1,46 @@
+{
+  "CallerReference": "CALLER",
+  "Comment": "photo-notes",
+  "Enabled": true,
+  "DefaultRootObject": "index.html",
+  "PriceClass": "PriceClass_100",
+  "HttpVersion": "http2and3",
+  "Origins": {
+    "Quantity": 2,
+    "Items": [
+      {
+        "Id": "photos",
+        "DomainName": "BUCKET.s3.us-east-2.amazonaws.com",
+        "OriginAccessControlId": "OAC_ID",
+        "S3OriginConfig": { "OriginAccessIdentity": "" }
+      },
+      {
+        "Id": "api",
+        "DomainName": "API_ID.execute-api.us-east-2.amazonaws.com",
+        "CustomOriginConfig": {
+          "HTTPPort": 80, "HTTPSPort": 443, "OriginProtocolPolicy": "https-only",
+          "OriginSslProtocols": { "Quantity": 1, "Items": ["TLSv1.2"] }
+        }
+      }
+    ]
+  },
+  "DefaultCacheBehavior": {
+    "TargetOriginId": "photos",
+    "ViewerProtocolPolicy": "redirect-to-https",
+    "Compress": true,
+    "CachePolicyId": "CACHE_OPT",
+    "ResponseHeadersPolicyId": "SEC"
+  },
+  "CacheBehaviors": {
+    "Quantity": 1,
+    "Items": [
+      {
+        "PathPattern": "/api/*",
+        "TargetOriginId": "api",
+        "ViewerProtocolPolicy": "https-only",
+        "CachePolicyId": "CACHE_OFF",
+        "OriginRequestPolicyId": "ORP"
+      }
+    ]
+  }
+}
