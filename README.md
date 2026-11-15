@@ -21,7 +21,7 @@ chapter deletes what it creates, so follow along and clean up the same way.
 | 5 | Networking with VPC | [chapters/05-networking-with-vpc](chapters/05-networking-with-vpc) |
 | 6 | S3: Storage for Photos | [chapters/06-s3-storage-for-photos](chapters/06-s3-storage-for-photos) |
 | 7 | Databases: RDS and DynamoDB | [chapters/07-databases-rds-and-dynamodb](chapters/07-databases-rds-and-dynamodb) |
-| 8 | Serverless: Lambda and API Gateway | coming soon |
+| 8 | Serverless: Lambda and API Gateway | [chapters/08-serverless-lambda-and-api-gateway](chapters/08-serverless-lambda-and-api-gateway) |
 | 9 | Messaging: SQS, SNS and EventBridge | [chapters/09-messaging-sqs-sns-and-eventbridge](chapters/09-messaging-sqs-sns-and-eventbridge) |
 | 10 | Containers: ECR and ECS Fargate | [chapters/10-containers-ecr-and-ecs-fargate](chapters/10-containers-ecr-and-ecs-fargate) |
 | 11 | Monitoring and Audit: CloudWatch and CloudTrail | [chapters/11-monitoring-and-audit-cloudwatch-and-cloudtrail](chapters/11-monitoring-and-audit-cloudwatch-and-cloudtrail) |
